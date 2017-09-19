@@ -1,4 +1,4 @@
-angular.module 'radarLua', [
+angular.module 'mailforever', [
   'ngAnimate'
   'ngCookies'
   'ngTouch'

@@ -1,3 +1,3 @@
-angular.module('radarLua')
+angular.module('mailforever')
   .constant 'malarkey', malarkey
   .constant 'moment', moment

@@ -1,4 +1,4 @@
-angular.module 'radarLua'
+angular.module 'mailforever'
   .config ($stateProvider, $urlRouterProvider) ->
     'ngInject'
     $stateProvider

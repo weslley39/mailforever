@@ -1,11 +1,18 @@
 angular.module 'mailforever'
-  .controller 'InboxController', ($timeout) ->
+  .controller 'SidebarController', ($scope) ->
     'ngInject'
 
     ##################################
     ## Attributes
     ##################################
-
+    $scope.attrs =
+      menus: [
+        {
+          name: 'Inbox',
+          total: 5,
+          route: 'inbox'
+        }
+      ]
     ##################################
     ## Methods
     ##################################
@@ -17,5 +24,4 @@ angular.module 'mailforever'
     ##################################
     ## Init
     ##################################
-
-    return @
+    console.log $scope.attrs

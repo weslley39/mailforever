@@ -1,4 +1,4 @@
-angular.module 'radarLua'
+angular.module 'mailforever'
   .run ($log) ->
     'ngInject'
     $log.debug 'runBlock end'

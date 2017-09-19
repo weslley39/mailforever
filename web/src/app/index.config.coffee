@@ -1,8 +1,8 @@
-angular.module 'radarLua'
+angular.module 'mailforever'
   .config ($logProvider, $urlRouterProvider, toastrConfig) ->
     'ngInject'
     # Enable log
     $logProvider.debugEnabled true
-    $urlRouterProvider.otherwise '/'
+    $urlRouterProvider.otherwise '/inbox'
 
 
