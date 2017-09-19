@@ -1,5 +1,5 @@
 angular.module 'mailforever'
-  .directive 'radarNavbar', ->
+  .directive 'sidebar', ->
 
     directive =
       restrict            : 'E'

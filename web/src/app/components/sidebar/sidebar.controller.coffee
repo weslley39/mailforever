@@ -11,6 +11,16 @@ angular.module 'mailforever'
           name: 'Inbox',
           total: 5,
           route: 'inbox'
+        },
+        {
+          name: 'Inbox',
+          total: 5,
+          route: 'inbox'
+        },
+        {
+          name: 'Inbox',
+          total: 5,
+          route: 'inbox'
         }
       ]
     ##################################

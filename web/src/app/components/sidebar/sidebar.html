@@ -1,1 +1,4 @@
-{{attrs.menus | json}}
+<a class="aside-item">
+  <img src="/assets/images/logo.png" class="aside-logo">
+</a>
+<a class="aside-item" ng-repeat="menu in attrs.menus" ng-bind="menu.name" ui-sref="{{menu.route}}"></a>
