@@ -43,6 +43,10 @@ sidebar {
   min-height: 1.5em;
   color: #7d8b91;
 
+  &.active {
+    color: #FFFFFF
+  }
+
   &:hover{
     color: #d44a4a;
     text-decoration: none;
@@ -51,8 +55,12 @@ sidebar {
   &:first-child{
     background-color: #d44a4a;
   }
-}
 
-.aside-logo {
-  width: 45px;
+  .aside-logo {
+    width: 45px;
+  }
+
+  .fa {
+    font-size: 35px;
+  }
 }

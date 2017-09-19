@@ -1,25 +1,16 @@
 angular.module 'mailforever'
-  .controller 'SidebarController', ($scope, $state) ->
+  .controller 'MessagesController', ($scope) ->
     'ngInject'
 
     ##################################
     ## Attributes
     ##################################
-    $scope.attrs =
-      menus: [
-        {
-          name: 'Inbox',
-          total: 5,
-          route: 'inbox',
-          icon: 'fa fa-inbox'
-        }
-      ]
+    # $scope.attrs =
+
     ##################################
     ## Methods
     ##################################
-    $scope.methods =
-      isActive: (route) ->
-        $state.current.name is route
+    # $scope.methods =
 
     ##################################
     ## Watchers
