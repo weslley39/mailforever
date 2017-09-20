@@ -1,5 +1,14 @@
 <ul>
   <li ng-repeat="message in attrs.messages track by $index">
-    <span ng-bind="message.sender"></span>
+    <p>
+      <span ng-bind="message.sender" class="message-sender"></span>
+      <span ng-bind="message.time_sent | amDateFormat:'h:mma'" class="message-time"></span>
+    </p>
+
+    <p ng-bind="message.subject" class="message-subject"></p>
+
+    <p class="message-message">
+      {{ message.message | limitTo:110 }}...
+    </p>
   </li>
 </ul>
