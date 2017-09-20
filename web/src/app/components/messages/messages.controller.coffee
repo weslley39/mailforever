@@ -5,7 +5,8 @@ angular.module 'mailforever'
     ##################################
     ## Attributes
     ##################################
-    # $scope.attrs =
+    $scope.attrs =
+      messages: $scope.data
 
     ##################################
     ## Methods
@@ -19,3 +20,4 @@ angular.module 'mailforever'
     ##################################
     ## Init
     ##################################
+    console.log $scope.attrs

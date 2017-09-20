@@ -1,7 +1,7 @@
 <a class="aside-item">
   <img src="/assets/images/logo.png" class="aside-logo">
 </a>
-<a class="aside-item" ng-repeat="menu in attrs.menus" ng-class="{'active': methods.isActive(menu.route)}" ui-sref="{{menu.route}}">
+<a class="aside-item" ng-repeat="menu in attrs.menus track by $index" ng-class="{'active': methods.isActive(menu.route)}" ui-sref="{{menu.route}}">
     <i ng-class="menu.icon" aria-hidden="true"></i>
     <span ng-bind="menu.name"></span>
 </a>

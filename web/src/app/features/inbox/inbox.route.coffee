@@ -6,4 +6,6 @@ angular.module 'mailforever'
         url: '/inbox'
         templateUrl: 'app/features/inbox/inbox.html'
         controller: 'InboxController'
-        controllerAs: 'ctrl'
+        resolve:
+          msgs: (InboxService) ->
+            InboxService.getAll()

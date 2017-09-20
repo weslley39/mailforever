@@ -1,10 +1,12 @@
 angular.module 'mailforever'
-  .controller 'InboxController', ($timeout) ->
+  .controller 'InboxController', ($scope, msgs) ->
     'ngInject'
 
     ##################################
     ## Attributes
     ##################################
+    $scope.attrs =
+      messages: msgs.data.messages
 
     ##################################
     ## Methods
@@ -17,5 +19,3 @@ angular.module 'mailforever'
     ##################################
     ## Init
     ##################################
-
-    return @

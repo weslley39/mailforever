@@ -11,6 +11,10 @@ const PASSWORD = '123';
 
 const TOKEN = 'mailforeverjwt'
 
+const PORT = process.env.PORT || '3009';
+
+const PREFIX = '/api/'
+
 app.use(morgan('tiny'));
 
 app.use(bodyParser.json());
@@ -27,22 +31,18 @@ app.get('/', (req, res) => {
   res.status(200).send('MailForever Api');
 });
 
-app.post('/login', (req, res) => {
-  if (req.body.email === EMAIL && req.body.password === PASSWORD) {
+app.get(`${PREFIX}inbox`, (req, res) => {
+  // if (req.body.email === EMAIL && req.body.password === PASSWORD) {
     return res.status(200).send({
       status: 'ok',
-      user: {
-        name: 'SuperUser',
-        email: EMAIL,
-      },
-      token: TOKEN,
+      messages: MESSAGES,
     });
-  }
+  // }
 
-  return res.status(401).send({
-    status: 'error',
-    message: 'Invalid user and/or password ',
-  });
+  // return res.status(401).send({
+  //   status: 'error',
+  //   message: 'Invalid user and/or password ',
+  // });
 });
 
 app.get('/messages', (req, res) => {

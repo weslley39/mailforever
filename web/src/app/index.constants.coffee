@@ -1,3 +1,2 @@
 angular.module('mailforever')
-  .constant 'malarkey', malarkey
-  .constant 'moment', moment
+  .constant 'APP_BASE_URL', 'api/'
