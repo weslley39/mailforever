@@ -34,15 +34,20 @@ messages {
         white-space: nowrap;
         transition: 100ms ease-in-out;
         min-height: 1.5em;
-        padding: 15px;
-        border-bottom: 2px solid #E5EAEB;
-        border-right: 2px solid #E5EAEB;
+        padding: 20px 15px;
+        border-bottom: 2px solid $third-color;
+        border-right: 2px solid $third-color;
+
+        &.active {
+          background: $fourth-color;
+          color: #ffffff;
+        }
     }
   }
 
   .message-sender, .message-subject {
     font-size: 15px;
-    font-weight: 900;
+    font-weight: 500;
   }
 
   .message-time {
@@ -56,6 +61,7 @@ messages {
     white-space: normal;
     font-size: 14px;
     font-weight: 400;
+    margin-top: 3px;
   }
 
   p {

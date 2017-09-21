@@ -1,24 +1,17 @@
 angular.module 'mailforever'
-  .controller 'MessagesController', ($scope) ->
+  .controller 'MessageViewerController', ($scope) ->
     'ngInject'
 
     ##################################
     ## Attributes
     ##################################
     $scope.attrs =
-      messages: $scope.data
-      selected: null
+      message = $scope.message
 
     ##################################
     ## Methods
     ##################################
-    $scope.methods =
-      select: (message) ->
-        $scope.attrs.selected = message
-        $scope.selectCb(message)
-
-      isSelected: (messageId) ->
-        return $scope.attrs.selected?.uid is messageId
+    # $scope.methods =
 
     ##################################
     ## Watchers

@@ -13,19 +13,13 @@
 }
 
 .app-main {
-  display                    : -webkit-box;
-  display                    : box;
-  display                    : -webkit-flex;
-  display                    : flex;
-  -webkit-box-orient         : vertical;
-  box-orient                 : vertical;
-  -webkit-flex-direction     : column;
-  flex-direction             : column;
-  transition                 : margin 200ms;
-  transition-timing-function : cubic-bezier(.5, -0.25, .5, 1.25);
-  -webkit-box-flex           : 1;
-  box-flex                   : 1;
-  -webkit-flex               : 1 1 auto;
-  flex                       : 1 1 auto;
-  width                      : 0;
+  display: -webkit-box;
+  display: box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-flex: 1;
+  box-flex: 1;
+  -webkit-flex: 1 1 auto;
+  flex: 1 1 auto;
+  overflow: hidden;
 }

@@ -9,7 +9,7 @@ sidebar {
   flex-direction: column;
   flex: 0 0 auto;
   width: 100px;
-  background: #555;
+  background: $primary-color;
   overflow: visible;
 }
 
@@ -41,19 +41,19 @@ sidebar {
   white-space: nowrap;
   transition: 100ms ease-in-out;
   min-height: 1.5em;
-  color: #7d8b91;
+  border-bottom: 1px solid $primary-color-soft;
 
   &.active {
     color: #FFFFFF
   }
 
   &:hover{
-    color: #d44a4a;
+    color: $secondary-color;
     text-decoration: none;
   }
 
   &:first-child{
-    background-color: #d44a4a;
+    background-color: $secondary-color;
   }
 
   .aside-logo {
