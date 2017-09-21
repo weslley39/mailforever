@@ -9,3 +9,5 @@ angular.module 'mailforever'
         resolve:
           msgs: (InboxService) ->
             InboxService.getAll()
+          totalUnread: (InboxService) ->
+            InboxService.getTotalUnread()

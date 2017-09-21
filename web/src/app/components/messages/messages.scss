@@ -64,6 +64,16 @@ messages {
     margin-top: 3px;
   }
 
+  .message-unread {
+    width: 12px;
+    height: 12px;
+    border-radius: 10px;
+    border: 2px solid #3AB25C;
+    position: absolute;
+    right: 65px;
+    top: 23px;
+  }
+
   p {
     margin-bottom: 0;
   }

@@ -6,4 +6,41 @@ message-viewer {
   flex: 1;
   display: flex;
   flex-direction: column;
+  padding: 50px;
+
+
+  .message-subject {
+    font-weight: 400;
+  }
+
+  .user-logo {
+    height: 80px;
+  }
+
+  .message-time {
+    float: right;
+    font-weight: 300;
+    font-size: 16px;
+  }
+
+  .message-sender {
+    font-size: 20px;
+    font-weight: 400;
+  }
+
+  .message.message {
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    line-height: 28px;
+    word-wrap: break-word;
+    margin-top: 30px;
+  }
+
+  hr {
+    border-top: 2px solid $third-color-darker;
+    width: 100%;
+  }
+
+
 }

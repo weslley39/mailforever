@@ -28,6 +28,21 @@ app.get(`${PREFIX}inbox`, (req, res) => {
     });
 });
 
+app.get(`${PREFIX}inbox/total-unread`, (req, res) => {
+  let total = 0;
+
+  MESSAGES.forEach((message) => {
+    if (message.read === false) {
+      total = total + 1;
+    }
+  })
+
+  return res.status(200).send({
+    status: 'ok',
+    total
+  });
+});
+
 app.get(`${PREFIX}inbox/:id`, (req, res) => {
   const id             = req.params.id;
   let messageSelected  = {};

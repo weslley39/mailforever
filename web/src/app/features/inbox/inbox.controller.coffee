@@ -1,5 +1,5 @@
 angular.module 'mailforever'
-  .controller 'InboxController', ($scope, $timeout,  msgs, InboxService) ->
+  .controller 'InboxController', ($scope, $timeout,  msgs, totalUnread, InboxService) ->
     'ngInject'
 
     ##################################
@@ -7,6 +7,7 @@ angular.module 'mailforever'
     ##################################
     $scope.attrs =
       messages        : msgs.data.messages
+      totalUnread     : totalUnread.data.total
       selectedMessage : {}
 
     ##################################
@@ -17,8 +18,8 @@ angular.module 'mailforever'
         InboxService.getById(messageId)
           .then (result) ->
             result = result.data
-            $scope.attrs.selectedMessage = result.message
-            console.log $scope.attrs
+            $timeout ->
+              $scope.attrs.selectedMessage = result.message
 
     ##################################
     ## Watchers

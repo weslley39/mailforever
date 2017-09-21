@@ -5,8 +5,6 @@ angular.module 'mailforever'
     ##################################
     ## Attributes
     ##################################
-    $scope.attrs =
-      message = $scope.message
 
     ##################################
     ## Methods

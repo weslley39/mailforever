@@ -1,2 +1,20 @@
-<h1 ng-bind="attrs.message | json"></h1>
-<h1>Wessley Neri</h1>
+<header>
+  <h1 ng-bind="message.subject" class="message-subject"></h1>
+</header>
+
+<hr>
+
+<div class="message-wrapper">
+    <div class="row">
+      <div class="col-1">
+        <img src="/assets/images/default-user.png" class="user-logo">
+      </div>
+      <div class="col-11">
+        <p>
+          <span ng-bind="message.sender"></span>
+          <span ng-bind="message.time_sent | amDateFormat:'LLLL'" class="message-time"></span>
+        </p>
+        <p ng-bind-html="message.message" class="message.message"></p>
+      </div>
+    </div>
+</div>
