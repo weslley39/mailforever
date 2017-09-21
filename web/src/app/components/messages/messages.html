@@ -1,7 +1,8 @@
 <ul>
   <li ng-repeat="message in attrs.messages track by $index" ng-class="{'active': methods.isSelected(message.uid)}" ng-click="methods.select(message)">
     <p>
-      <span ng-bind="message.sender" class="message-sender"></span>
+      <span ng-if="attrs.type === 'inbox'" ng-bind="message.sender" class="message-sender"></span>
+      <span ng-if="attrs.type === 'sent'" ng-bind="message.to" class="message-sender"></span>
       <i class="message-unread" ng-if="message.read === false"></i>
       <span ng-bind="message.time_sent | amDateFormat:'h:mma'" class="message-time"></span>
     </p>

@@ -1,0 +1,18 @@
+[
+  {
+    "uid": "1",
+    "sender": "Weslley Neri",
+    "to": "Lea Zandler",
+    "subject": "Thanks",
+    "message": "Really thanks for this opportunity.",
+    "time_sent": 1459239867
+  },
+  {
+    "uid": "2",
+    "sender": "Weslley Neri",
+    "to": "Jeff Moreno",
+    "subject": "Let's Code",
+    "message": "I don't see the time, to work with the awesome askCharlie developer team, share my knowledge and learn a lot of new stuffs.",
+    "time_sent": 1459248747
+  }
+]

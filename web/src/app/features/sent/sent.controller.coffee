@@ -1,25 +1,25 @@
 angular.module 'mailforever'
-  .controller 'MessagesController', ($scope) ->
+  .controller 'SentController', ($scope, $timeout,  msgs, SentService, EMAIL_TYPES) ->
     'ngInject'
 
     ##################################
     ## Attributes
     ##################################
     $scope.attrs =
-      messages: $scope.data
-      selected: null
-      type    : $scope.type
+      messages        : msgs.data.messages
+      selectedMessage : {}
+      type            : EMAIL_TYPES.SENT
 
     ##################################
     ## Methods
     ##################################
     $scope.methods =
-      select: (message) ->
-        $scope.attrs.selected = message
-        $scope.selectCb(message)
-
-      isSelected: (messageId) ->
-        return $scope.attrs.selected?.uid is messageId
+      selectMessage: (messageId) ->
+        SentService.getById(messageId)
+          .then (result) ->
+            result = result.data
+            $timeout ->
+              $scope.attrs.selectedMessage = result.message
 
     ##################################
     ## Watchers

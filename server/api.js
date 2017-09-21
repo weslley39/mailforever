@@ -1,8 +1,9 @@
-const express     = require('express');
-const app         = express();
-const morgan      = require('morgan');
-const bodyParser  = require('body-parser');
-const MESSAGES    = require('./messages');
+const express           = require('express');
+const app               = express();
+const morgan            = require('morgan');
+const bodyParser        = require('body-parser');
+const MESSAGES_INBOX    = require('./messages-inbox.json');
+const MESSAGES_SENT     = require('./messages-sent.json');
 
 const PORT   = process.env.PORT || '3009';
 const PREFIX = '/api/'
@@ -21,17 +22,19 @@ app.get('/', (req, res) => {
   res.status(200).send('MailForever Api');
 });
 
+
+// Messages INbox
 app.get(`${PREFIX}inbox`, (req, res) => {
     return res.status(200).send({
       status: 'ok',
-      messages: MESSAGES,
+      messages: MESSAGES_INBOX,
     });
 });
 
 app.get(`${PREFIX}inbox/total-unread`, (req, res) => {
   let total = 0;
 
-  MESSAGES.forEach((message) => {
+  MESSAGES_INBOX.forEach((message) => {
     if (message.read === false) {
       total = total + 1;
     }
@@ -47,7 +50,33 @@ app.get(`${PREFIX}inbox/:id`, (req, res) => {
   const id             = req.params.id;
   let messageSelected  = {};
 
-  MESSAGES.forEach((message) => {
+  MESSAGES_INBOX.forEach((message) => {
+    if (message.uid === id) {
+      messageSelected = message
+    }
+  })
+
+  return res.status(200).send({
+    status: 'ok',
+    message: messageSelected
+  });
+});
+
+
+// Nessages Sent
+app.get(`${PREFIX}sent`, (req, res) => {
+  return res.status(200).send({
+    status: 'ok',
+    messages: MESSAGES_SENT,
+  });
+});
+
+
+app.get(`${PREFIX}sent/:id`, (req, res) => {
+  const id             = req.params.id;
+  let messageSelected  = {};
+
+  MESSAGES_SENT.forEach((message) => {
     if (message.uid === id) {
       messageSelected = message
     }

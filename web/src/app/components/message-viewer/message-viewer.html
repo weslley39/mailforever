@@ -11,10 +11,13 @@
       </div>
       <div class="col-11">
         <p>
-          <span ng-bind="message.sender"></span>
+          <small class="message-info">FROM:</small> <span ng-bind="message.sender"></span>
           <span ng-bind="message.time_sent | amDateFormat:'LLLL'" class="message-time"></span>
         </p>
-        <p ng-bind-html="message.message" class="message.message"></p>
+        <p>
+          <small class="message-info">TO:</small> <span ng-bind="message.to"></span>
+        </p>
+        <p ng-bind-html="message.message" class="message-message"></p>
       </div>
     </div>
 </div>

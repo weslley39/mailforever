@@ -6,4 +6,5 @@ angular.module 'mailforever'
       controller          : 'MessagesController'
       scope               :
         data     : '='
+        type     : '='
         selectCb : '&'

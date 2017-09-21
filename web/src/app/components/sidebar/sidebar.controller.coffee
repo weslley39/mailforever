@@ -12,6 +12,11 @@ angular.module 'mailforever'
           total: 5,
           route: 'inbox',
           icon: 'fa fa-inbox'
+        },
+        {
+          name: 'Sent',
+          route: 'sent',
+          icon: 'fa fa-rocket'
         }
       ]
     ##################################

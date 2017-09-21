@@ -1,5 +1,5 @@
 angular.module 'mailforever'
-  .controller 'InboxController', ($scope, $timeout,  msgs, totalUnread, InboxService) ->
+  .controller 'InboxController', ($scope, $timeout,  msgs, totalUnread, InboxService, EMAIL_TYPES) ->
     'ngInject'
 
     ##################################
@@ -9,6 +9,7 @@ angular.module 'mailforever'
       messages        : msgs.data.messages
       totalUnread     : totalUnread.data.total
       selectedMessage : {}
+      type            : EMAIL_TYPES.INBOX
 
     ##################################
     ## Methods
