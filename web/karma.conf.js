@@ -61,10 +61,14 @@ module.exports = function(config) {
       whitelist: [path.join(conf.paths.tmp, '/**/!(*.html|*.spec|*.mock).js')]
     },
 
-    browsers : ['PhantomJS'],
+    browsers : [
+      // 'PhantomJS'
+      'Chrome'
+    ],
 
     plugins : [
       'karma-phantomjs-launcher',
+      'karma-chrome-launcher',
       'karma-angular-filesort',
       'karma-coverage',
       'karma-jasmine',
