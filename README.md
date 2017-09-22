@@ -8,32 +8,53 @@
   A better replacement for you mailbox!
 </p>
 
-## Installation - Web
+## Try it out
 
+
+1. Clone this repo
+```bash
+$ git clone https://github.com/weslley39/askCharlie
+```
+
+2. Install all dependencies (front/back)
 ```bash
 $ cd web/
 $ npm install
 $ bower install
-```
 
-## Installation - API
-
-```bash
 $ cd server/
 $ npm install
 ```
 
-## Usage - Web
+3. Run the back-end mock server
+```bash
+$ cd server/
+$ node api.js
+```
 
+4. Run the front-end server
 ```bash
 $ cd web/
 $ gulp server (for dev mode)
 $ gulp serve:dist (for dist mode)
 ```
 
-## Usage - API
+Then access [http://localhost:3000/](http://localhost:3000/)
+Enjoy 😉
 
+
+## Routes
+- `/inbox` - List of all the emails/messages in you inbox
+- `/sent` - List of all the emails/messages sent
+
+## Tests
+All the tests are the files with the `.spec` extension around the project. There is unit tests for the validators the controllers and directives
+
+If you want to run the tests:
 ```bash
-$ cd server/
-$ node api.js
+$ cd web/
+$ gulp test
 ```
+
+## Things I would add/modify/approach differently for a production-ready system
+I opened issues in this repo, with the label `feature`
