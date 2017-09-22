@@ -56,5 +56,7 @@ $ cd web/
 $ gulp test
 ```
 
+After run the tests, a folder called `coverage` will be created at the root. If you want to see how much this project is coverage by unit tests, open the file in `./coverage/app/index.html`
+
 ## Things I would add/modify/approach differently for a production-ready system
 I opened issues in this repo, with the label `feature`
