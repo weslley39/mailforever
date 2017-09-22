@@ -8,5 +8,6 @@ angular.module 'mailforever', [
   'ui.router'
   'ui.bootstrap'
   'toastr'
-  'angularMoment'
+  'angularMoment',
+  'oitozero.ngSweetAlert'
 ]

@@ -48,7 +48,7 @@ app.get(`${PREFIX}inbox/total-unread`, (req, res) => {
 
 app.get(`${PREFIX}inbox/:id`, (req, res) => {
   const id             = req.params.id;
-  let messageSelected  = {};
+  let messageSelected  = undefined;
 
   MESSAGES_INBOX.forEach((message) => {
     if (message.uid === id) {
@@ -56,9 +56,53 @@ app.get(`${PREFIX}inbox/:id`, (req, res) => {
     }
   })
 
+  if (!messageSelected) {
+    return res.status(404).send({
+      status: 'nok'
+    });
+  }
+
   return res.status(200).send({
     status: 'ok',
     message: messageSelected
+  });
+});
+
+app.delete(`${PREFIX}inbox/:id`, (req, res) => {
+  const id            = req.params.id;
+  let messageSelected = undefined;
+
+  MESSAGES_INBOX.forEach((message) => {
+    if (message.uid === id) {
+      messageSelected = message;
+    }
+  });
+
+  if (messageSelected === undefined) {
+    return res.status(404).send({
+      status: 'nok'
+    });
+  }
+
+  const messageIndex = MESSAGES_INBOX.indexOf(messageSelected);
+  MESSAGES_INBOX.splice(messageIndex, 1)
+
+  return res.status(200).send({
+    status: 'ok'
+  });
+});
+
+app.put(`${PREFIX}inbox/:id/read`, (req, res) => {
+  const id = req.params.id;
+
+  MESSAGES_INBOX.forEach((message) => {
+    if (message.uid === id) {
+      message.read = true;
+    }
+  });
+
+  return res.status(200).send({
+    status: 'ok'
   });
 });
 
@@ -85,6 +129,30 @@ app.get(`${PREFIX}sent/:id`, (req, res) => {
   return res.status(200).send({
     status: 'ok',
     message: messageSelected
+  });
+});
+
+app.delete(`${PREFIX}sent/:id`, (req, res) => {
+  const id            = req.params.id;
+  let messageSelected = undefined;
+
+  MESSAGES_SENT.forEach((message) => {
+    if (message.uid === id) {
+      messageSelected = message;
+    }
+  });
+
+  if (messageSelected === undefined) {
+    return res.status(404).send({
+      status: 'nok'
+    });
+  }
+
+  const messageIndex = MESSAGES_SENT.indexOf(messageSelected);
+  MESSAGES_SENT.splice(messageIndex, 1)
+
+  return res.status(200).send({
+    status: 'ok'
   });
 });
 

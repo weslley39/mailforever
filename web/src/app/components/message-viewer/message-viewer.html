@@ -1,23 +1,29 @@
-<header>
-  <h1 ng-bind="message.subject" class="message-subject"></h1>
-</header>
+<div ng-if="message">
+  <header>
+    <h1 ng-bind="message.subject" class="message-subject"></h1>
+  </header>
 
-<hr>
+  <hr>
 
-<div class="message-wrapper">
-    <div class="row">
-      <div class="col-1">
-        <img src="/assets/images/default-user.png" class="user-logo">
+  <div class="message-wrapper">
+      <div class="row">
+        <div class="col-1">
+          <img src="/assets/images/default-user.png" class="user-logo">
+        </div>
+        <div class="col-11">
+          <p>
+            <small class="message-info">FROM:</small> <span ng-bind="message.sender"></span>
+            <span ng-bind="message.time_sent | amDateFormat:'LLLL'" class="message-time"></span>
+          </p>
+          <p>
+            <small class="message-info">TO:</small> <span ng-bind="message.to"></span>
+          </p>
+          <p ng-bind-html="message.message" class="message-message"></p>
+        </div>
       </div>
-      <div class="col-11">
-        <p>
-          <small class="message-info">FROM:</small> <span ng-bind="message.sender"></span>
-          <span ng-bind="message.time_sent | amDateFormat:'LLLL'" class="message-time"></span>
-        </p>
-        <p>
-          <small class="message-info">TO:</small> <span ng-bind="message.to"></span>
-        </p>
-        <p ng-bind-html="message.message" class="message-message"></p>
-      </div>
-    </div>
+  </div>
+</div>
+
+<div ng-if="!message" class="no-message-wrapper">
+  <h1>No Message Selected</h1>
 </div>

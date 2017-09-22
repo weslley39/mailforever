@@ -15,4 +15,14 @@ angular.module "mailforever"
         $http
           url               : APP_BASE_URL + "inbox/#{id}"
           method            : 'GET'
+
+      setAsRead: (id) ->
+        $http
+          url               : APP_BASE_URL + "inbox/#{id}/read"
+          method            : 'PUT'
+
+      delete: (id) ->
+        $http
+          url               : APP_BASE_URL + "inbox/#{id}"
+          method            : 'DELETE'
     }

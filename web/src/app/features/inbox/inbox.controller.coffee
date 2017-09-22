@@ -1,5 +1,5 @@
 angular.module 'mailforever'
-  .controller 'InboxController', ($scope, $timeout,  msgs, totalUnread, InboxService, EMAIL_TYPES) ->
+  .controller 'InboxController', ($scope, $timeout,  msgs, Service, SweetAlert, type) ->
     'ngInject'
 
     ##################################
@@ -7,20 +7,40 @@ angular.module 'mailforever'
     ##################################
     $scope.attrs =
       messages        : msgs.data.messages
-      totalUnread     : totalUnread.data.total
-      selectedMessage : {}
-      type            : EMAIL_TYPES.INBOX
+      selectedMessage : undefined
+      type            : type
+
+    ##################################
+    ## Private Methods
+    ##################################
+    refreshResults = () ->
+      Service.getAll()
+        .then (result) ->
+          result = result.data
+          $timeout ->
+            $scope.attrs.messages = result.messages
 
     ##################################
     ## Methods
     ##################################
     $scope.methods =
       selectMessage: (messageId) ->
-        InboxService.getById(messageId)
+        Service.setAsRead(messageId)
+          .then () ->
+            return Service.getById(messageId)
           .then (result) ->
             result = result.data
             $timeout ->
               $scope.attrs.selectedMessage = result.message
+
+      deleteMessage: (messageId) ->
+        Service.delete(messageId)
+          .then () ->
+            SweetAlert.swal("Deleted!", "The message was deleted!", "success")
+            refreshResults()
+            if $scope.attrs.selectedMessage.uid is messageId
+              $timeout ->
+                $scope.attrs.selectedMessage = undefined
 
     ##################################
     ## Watchers

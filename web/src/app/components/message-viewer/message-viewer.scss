@@ -49,5 +49,19 @@ message-viewer {
     width: 100%;
   }
 
+  .no-message-wrapper {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 60%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+
+    h1 {
+      font-size: 50px;
+      font-weight: 300;
+      color: $third-color-lighter;
+    }
+  }
 
 }

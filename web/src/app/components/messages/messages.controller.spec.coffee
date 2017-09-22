@@ -65,6 +65,37 @@ describe 'directives: messages', () ->
     # Expectations
     expect(selectedMessage).toEqual(messages[0].id)
 
+  fit 'Should set property read to true when selected', inject ($rootScope, $compile) ->
+    # Setup
+    selectedMessage = {}
+
+    scope.selectMessage = (message) ->
+      selectedMessage = message
+
+    messages = [
+      {
+        id: 1,
+        name: 'Foo',
+        read: false
+      }
+    ]
+    type = 'inbox'
+
+    scope.messages = messages
+    scope.type     = type
+
+    # Compile
+    elem = angular.element "<messages data='messages' type='type' select-cb='selectMessage(id)'></messages>"
+    elem = $compile(elem)(scope)
+    scope.$digest()
+    isolateScope = elem.isolateScope()
+
+    # Call
+    isolateScope.methods.select(messages[0])
+
+    # Expectations
+    expect(messages[0].read).toBeTruthy()
+
   it 'should check if the message is the active one', inject ($rootScope, $compile) ->
     # Setup
 
