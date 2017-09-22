@@ -7,3 +7,33 @@
 <p align="center">
   A better replacement for you mailbox!
 </p>
+
+## Installation - Web
+
+```bash
+$ cd web/
+$ npm install
+$ bower install
+```
+
+## Installation - API
+
+```bash
+$ cd server/
+$ npm install
+```
+
+## Usage - Web
+
+```bash
+$ cd web/
+$ gulp server (for dev mode)
+$ gulp serve:dist (for dist mode)
+```
+
+## Usage - API
+
+```bash
+$ cd server/
+$ node api.js
+```
