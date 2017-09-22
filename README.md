@@ -47,6 +47,16 @@ Enjoy 😉
 - `/inbox` - List of all the emails/messages in you inbox
 - `/sent` - List of all the emails/messages sent
 
+## Features
+- Angular SPA
+- Routing with Ui Router
+- Angular TemplateCache for HTML partials be converted to JS
+- ngAnnotate for simple dependency injection
+- Live reload while developing with BrownserSync
+- Sass for CSS pre-processor
+- CoffeScript for fast coding
+- Uglify for optimize js files for production
+
 ## Tests
 All the tests are the files with the `.spec` extension around the project. There is unit tests for the validators the controllers and directives
 
