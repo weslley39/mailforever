@@ -32,10 +32,10 @@ describe 'directives: messages', () ->
     # Call
 
     # Expectations
-    expect(isolateScope.attrs.messages).toEqual(messages)
+    expect(isolateScope.data).toEqual(messages)
     expect(isolateScope.attrs.type).toEqual(type)
 
-  it 'Should call the callback function when the user select the message', inject ($rootScope, $compile) ->
+  it 'Should call the callback to select function when the user select the message', inject ($rootScope, $compile) ->
     # Setup
     selectedMessage = {}
 
@@ -65,7 +65,39 @@ describe 'directives: messages', () ->
     # Expectations
     expect(selectedMessage).toEqual(messages[0].id)
 
-  fit 'Should set property read to true when selected', inject ($rootScope, $compile) ->
+  it 'Should call the callback function to delete  when the user delete the message', inject ($rootScope, $compile) ->
+    # Setup
+    selectedMessage = {}
+
+    scope.deleteMessage = (message) ->
+      selectedMessage = message
+
+    messages = [
+      {
+        id: 1,
+        name: 'Foo'
+      }
+    ]
+    type = 'inbox'
+
+    scope.messages = messages
+    scope.type     = type
+
+    # Compile
+    event = scope.$emit("click")
+    elem = angular.element "<messages data='messages' type='type' delete-cb='deleteMessage(id)'></messages>"
+    elem = $compile(elem)(scope)
+    scope.$digest()
+    isolateScope = elem.isolateScope()
+
+    # Call
+    isolateScope.methods.delete(event, messages[0])
+    isolateScope.deleteCb(messages[0]) #force call because of sweetalert
+
+    # Expectations
+    expect(selectedMessage).toEqual(messages[0].id)
+
+  it 'Should set property read to true when selected', inject ($rootScope, $compile) ->
     # Setup
     selectedMessage = {}
 
