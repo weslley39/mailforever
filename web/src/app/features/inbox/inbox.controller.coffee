@@ -1,5 +1,5 @@
 angular.module 'mailforever'
-  .controller 'InboxController', ($scope, $timeout,  msgs, Service, SweetAlert, type) ->
+  .controller 'InboxController', ($scope, $timeout,  msgs, Service, SweetAlert, type, EMAIL_TYPES) ->
     'ngInject'
 
     ##################################
@@ -25,13 +25,13 @@ angular.module 'mailforever'
     ##################################
     $scope.methods =
       selectMessage: (messageId) ->
-        Service.setAsRead(messageId)
-          .then () ->
-            return Service.getById(messageId)
+        Service.getById(messageId)
           .then (result) ->
             result = result.data
             $timeout ->
               $scope.attrs.selectedMessage = result.message
+            if type is EMAIL_TYPES.INBOX
+              Service.setAsRead(messageId)
 
       deleteMessage: (messageId) ->
         Service.delete(messageId)
